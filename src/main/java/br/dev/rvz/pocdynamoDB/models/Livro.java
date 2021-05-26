@@ -30,7 +30,6 @@ public class Livro {
     public String getNome() {
         return nome;
     }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -39,7 +38,6 @@ public class Livro {
     public Integer getAno() {
         return ano;
     }
-
     public void setAno(Integer ano) {
         this.ano = ano;
     }
@@ -48,7 +46,6 @@ public class Livro {
     public String getNomeDoAutor() {
         return nomeDoAutor;
     }
-
     public void setNomeDoAutor(String nomeDoAutor) {
         this.nomeDoAutor = nomeDoAutor;
     }
