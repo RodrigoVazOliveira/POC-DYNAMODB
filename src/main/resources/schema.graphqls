@@ -20,3 +20,7 @@ input livroInput {
 type Mutation {
     cadastrarNovoLivro(livro: livroInput) : Livro
 }
+
+type Query {
+
+}
