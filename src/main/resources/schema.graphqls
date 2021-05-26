@@ -1,0 +1,22 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Livro {
+    id: Int
+    nome: String
+    ano: Int
+    nomeDoAutor: String
+}
+
+input livroInput {
+    id: Int
+    nome: String
+    ano: Int
+    nomeDoAutor: String
+}
+
+type Mutation {
+    cadastrarNovoLivro(livro: livroInput) : Livro
+}
