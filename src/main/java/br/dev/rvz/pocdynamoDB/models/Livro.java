@@ -1,9 +1,10 @@
 package br.dev.rvz.pocdynamoDB.models;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
+import org.jetbrains.annotations.NotNull;
 
 @DynamoDBTable(tableName = "livros")
-public class Livro {
+public class Livro implements Comparable<Livro> {
 
     private Long id;
     private String nome;
@@ -50,5 +51,10 @@ public class Livro {
     }
     public void setNomeDoAutor(String nomeDoAutor) {
         this.nomeDoAutor = nomeDoAutor;
+    }
+
+    @Override
+    public int compareTo(@NotNull Livro o) {
+        return this.id.compareTo(o.id);
     }
 }
