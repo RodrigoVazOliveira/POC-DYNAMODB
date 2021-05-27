@@ -7,6 +7,8 @@ import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class LivroResolver implements GraphQLMutationResolver, GraphQLQueryResolver {
 
@@ -16,5 +18,9 @@ public class LivroResolver implements GraphQLMutationResolver, GraphQLQueryResol
     public Livro cadastrarNovoLivro(Livro livro) {
         livroService.cadastrarLivro(livro);
         return livro;
+    }
+
+    public List<Livro> obterTodosOsRegistros() {
+        return livroService.obterTodosLivrosCadastrados();
     }
 }

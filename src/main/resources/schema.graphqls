@@ -22,5 +22,5 @@ type Mutation {
 }
 
 type Query {
-
+    obterTodosOsRegistros : Livro
 }
