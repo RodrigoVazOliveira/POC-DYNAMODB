@@ -19,40 +19,41 @@ Para usar, é necessário criar uma tabela no dynamoDB com nome livros, depois c
 * cadastro de livro:
 	```graphql
 	
-	{
-		"query":
-			"mutation($livro: LivroInput) { 
-				cadastrarNovoLivro(livro: $livro) {
-					id
-					nome
-					ano
-					nomeDoAutor
-			   }
+    {
+      "query":
+        "mutation($livro: LivroInput) { 
+    		cadastrarNovoLivro(livro: $livro) {
+    			id
+    			nome
+    			ano
+    			nomeDoAutor
+    	   }
 		}",
-		"variables": {
-			"livro": {
-				"id":"4",
-				"nome":"Livro 4",
-				"ano":2013,
-				"nomeDoAutor":"Jailson"
-			}
-		}
-	}	
+        "variables": {
+        	"livro": {
+        		"id":"4",
+        		"nome":"Livro 4",
+        		"ano":2013,
+        		"nomeDoAutor":"Jailson"
+        	}
+        }
+    }	
 
 	
 * obter todos livros cadastrados:
 	```graphql
 
-	{
-		query {
-		    obterTodosOsRegistros {
-		        id
-		        nome
-		        ano
-		        nomeDoAutor
-		    }
-		}
-	}
+    {
+    "query": 
+        "query {
+            obterTodosOsRegistros {
+                id
+                nome
+                ano
+                nomeDoAutor
+            }
+        }"
+    }
 	
 * atualizar um livro
 	```graphql
