@@ -27,4 +27,8 @@ public class LivroResolver implements GraphQLMutationResolver, GraphQLQueryResol
     public Livro atualizarLivro(Livro livro) {
     	return livroService.atualizarLivro(livro);
     }
+    
+    public void deleteLivro(Long id) {
+    	livroService.deleteLivro(id);
+    }
 }
