@@ -10,7 +10,7 @@ type Livro {
     nomeDoAutor: String
 }
 
-input livroInput {
+input LivroInput {
     id: Int
     nome: String
     ano: Int
@@ -18,7 +18,7 @@ input livroInput {
 }
 
 type Mutation {
-    cadastrarNovoLivro(livro: livroInput) : Livro
+    cadastrarNovoLivro(livro: LivroInput) : Livro
     atualizarLivro(livro: LivroInput) : Livro
 }
 
