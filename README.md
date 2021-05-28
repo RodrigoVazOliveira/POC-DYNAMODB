@@ -12,6 +12,9 @@
 
 ### Modo de uso:
 
+Para usar, é necessário criar uma tabela no dynamoDB com nome livros, depois configurar suas credenciais da AWS no seu ambiente de trabalho.
+[Documentação da AWS](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
+
 * endpont principal: POST http://localhost:8080/graphql 
 * cadastro de livro:
 	```graphql
