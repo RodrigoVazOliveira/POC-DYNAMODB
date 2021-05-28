@@ -16,7 +16,7 @@
 * cadastro de livro:
 	```graphql
 	
-		{
+	{
 		"query":
 			"mutation($livro: LivroInput) { 
 				cadastrarNovoLivro(livro: $livro) {
@@ -32,27 +32,29 @@
 				"nome":"Livro 4",
 				"ano":2013,
 				"nomeDoAutor":"Jailson"
-				}
 			}
+		}
 	}	
 
 	
 * obter todos livros cadastrados:
 	```graphql
 
-	query {
-	    obterTodosOsRegistros {
-	        id
-	        nome
-	        ano
-	        nomeDoAutor
-	    }
+	{
+		query {
+		    obterTodosOsRegistros {
+		        id
+		        nome
+		        ano
+		        nomeDoAutor
+		    }
+		}
 	}
 	
 * atualizar um livro
-```graphql
+	```graphql
 	
-		{
+	{
 		"query":
 			"mutation($livro: LivroInput) { 
 				atualizarLivro(livro: $livro) {
@@ -61,20 +63,20 @@
 					ano
 					nomeDoAutor
 			   }
-			}",
+		}",
 		"variables": {
 			"livro": {
 				"id":"4",
 				"nome":"Novo nome",
 				"ano":2013,
 				"nomeDoAutor":"Jailson"
-				}
 			}
+		}
 	}	
 
 
 * excluir um livro:
-```graphql
+	```graphql
 
 	{
 		"query": "mutation($id: Int) {
