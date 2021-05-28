@@ -23,4 +23,8 @@ public class LivroResolver implements GraphQLMutationResolver, GraphQLQueryResol
     public List<Livro> obterTodosOsRegistros() {
         return livroService.obterTodosLivrosCadastrados();
     }
+    
+    public Livro atualizarLivro(Livro livro) {
+    	return livroService.atualizarLivro(livro);
+    }
 }
