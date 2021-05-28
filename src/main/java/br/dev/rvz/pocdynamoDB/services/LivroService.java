@@ -1,5 +1,6 @@
 package br.dev.rvz.pocdynamoDB.services;
 
+import br.dev.rvz.pocdynamoDB.errors.LivroNaoEncontradoException;
 import br.dev.rvz.pocdynamoDB.models.Livro;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
@@ -41,7 +42,7 @@ public class LivroService {
     	Livro livro = dynamoDBMapper.load(Livro.class, id);
     	
     	if (livro == null) {
-    		throw new RuntimeException("Não existe livro com id " + id);
+    		throw new LivroNaoEncontradoException("Não existe livro com id " + id);
     	}
     	
     	return livro;
