@@ -59,23 +59,23 @@ Para usar, é necessário criar uma tabela no dynamoDB com nome livros, depois c
 	```graphql
 	
     {
-    	"query":
-    		"mutation($livro: LivroInput) { 
-    			atualizarLivro(livro: $livro) {
-    				id
-    				nome
-    				ano
-    				nomeDoAutor
-    		   }
-    	}",
-    	"variables": {
-    		"livro": {
-    			"id":"4",
-    			"nome":"Novo nome",
-    			"ano":2013,
-    			"nomeDoAutor":"Jailson"
-    		}
-    	}
+	"query":
+		"mutation($livro: LivroInput) { 
+			atualizarLivro(livro: $livro) {
+				id
+				nome
+				ano
+				nomeDoAutor
+		   }
+	}",
+	"variables": {
+		"livro": {
+			"id":"4",
+			"nome":"Novo nome",
+			"ano":2013,
+			"nomeDoAutor":"Jailson"
+		}
+	}
     }	
 
 
@@ -83,11 +83,11 @@ Para usar, é necessário criar uma tabela no dynamoDB com nome livros, depois c
 	```graphql
 
 	{
-		"query": "mutation($id: Int) {
-			deleteLivro(id: $id)
-		}",
-		"variables": {
-			"id": 3
-		}
+    "query": "mutation($id: Int) {
+    	deleteLivro(id: $id)
+    }",
+    "variables": {
+    	"id": 3
+    }
 	}
 
