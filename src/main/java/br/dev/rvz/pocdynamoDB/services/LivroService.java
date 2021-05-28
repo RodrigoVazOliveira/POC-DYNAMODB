@@ -22,8 +22,18 @@ public class LivroService {
 
     public List<Livro> obterTodosLivrosCadastrados() {
         List<Livro> livros = new ArrayList<>();
-       livros.addAll(dynamoDBMapper.scan(Livro.class, new DynamoDBScanExpression()));
+        livros.addAll(dynamoDBMapper.scan(Livro.class, new DynamoDBScanExpression()));
         Collections.sort(livros);
         return livros;
+    }
+    
+    public Livro atualizarLivro(Livro livroAtualizar) {
+    	Livro livroSalvo = dynamoDBMapper.load(Livro.class, livroAtualizar.getId());
+    	livroSalvo.setNome(livroAtualizar.getNome());
+    	livroSalvo.setAno(livroAtualizar.getAno());
+    	livroSalvo.setNomeDoAutor(livroAtualizar.getNomeDoAutor());
+    	cadastrarLivro(livroSalvo);
+    	
+    	return livroSalvo;
     }
 }
