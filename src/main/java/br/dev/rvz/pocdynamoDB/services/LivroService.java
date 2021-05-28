@@ -28,12 +28,27 @@ public class LivroService {
     }
     
     public Livro atualizarLivro(Livro livroAtualizar) {
-    	Livro livroSalvo = dynamoDBMapper.load(Livro.class, livroAtualizar.getId());
+    	Livro livroSalvo = procurarLivroPorId(livroAtualizar.getId());
     	livroSalvo.setNome(livroAtualizar.getNome());
     	livroSalvo.setAno(livroAtualizar.getAno());
     	livroSalvo.setNomeDoAutor(livroAtualizar.getNomeDoAutor());
     	cadastrarLivro(livroSalvo);
     	
     	return livroSalvo;
+    }
+    
+    public Livro procurarLivroPorId(Long id) {
+    	Livro livro = dynamoDBMapper.load(Livro.class, id);
+    	
+    	if (livro == null) {
+    		throw new RuntimeException("Não existe livro com id " + id);
+    	}
+    	
+    	return livro;
+    }
+    
+    public void deleteLivro(Long id) {
+    	Livro livro = procurarLivroPorId(id);
+    	dynamoDBMapper.delete(livro);
     }
 }
