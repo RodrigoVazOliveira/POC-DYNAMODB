@@ -58,25 +58,25 @@ Para usar, é necessário criar uma tabela no dynamoDB com nome livros, depois c
 * atualizar um livro
 	```graphql
 	
-	{
-		"query":
-			"mutation($livro: LivroInput) { 
-				atualizarLivro(livro: $livro) {
-					id
-					nome
-					ano
-					nomeDoAutor
-			   }
-		}",
-		"variables": {
-			"livro": {
-				"id":"4",
-				"nome":"Novo nome",
-				"ano":2013,
-				"nomeDoAutor":"Jailson"
-			}
-		}
-	}	
+    {
+    	"query":
+    		"mutation($livro: LivroInput) { 
+    			atualizarLivro(livro: $livro) {
+    				id
+    				nome
+    				ano
+    				nomeDoAutor
+    		   }
+    	}",
+    	"variables": {
+    		"livro": {
+    			"id":"4",
+    			"nome":"Novo nome",
+    			"ano":2013,
+    			"nomeDoAutor":"Jailson"
+    		}
+    	}
+    }	
 
 
 * excluir um livro:
