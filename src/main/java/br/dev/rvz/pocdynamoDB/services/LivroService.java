@@ -1,5 +1,6 @@
 package br.dev.rvz.pocdynamoDB.services;
 
+import br.dev.rvz.pocdynamoDB.errors.LivroNaoEncontradoException;
 import br.dev.rvz.pocdynamoDB.models.Livro;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
@@ -28,12 +29,27 @@ public class LivroService {
     }
     
     public Livro atualizarLivro(Livro livroAtualizar) {
-    	Livro livroSalvo = dynamoDBMapper.load(Livro.class, livroAtualizar.getId());
+    	Livro livroSalvo = procurarLivroPorId(livroAtualizar.getId());
     	livroSalvo.setNome(livroAtualizar.getNome());
     	livroSalvo.setAno(livroAtualizar.getAno());
     	livroSalvo.setNomeDoAutor(livroAtualizar.getNomeDoAutor());
     	cadastrarLivro(livroSalvo);
     	
     	return livroSalvo;
+    }
+    
+    public Livro procurarLivroPorId(Long id) {
+    	Livro livro = dynamoDBMapper.load(Livro.class, id);
+    	
+    	if (livro == null) {
+    		throw new LivroNaoEncontradoException("Não existe livro com id " + id);
+    	}
+    	
+    	return livro;
+    }
+    
+    public void deleteLivro(Long id) {
+    	Livro livro = procurarLivroPorId(id);
+    	dynamoDBMapper.delete(livro);
     }
 }

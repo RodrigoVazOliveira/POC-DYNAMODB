@@ -20,7 +20,8 @@ input LivroInput {
 type Mutation {
     cadastrarNovoLivro(livro: LivroInput) : Livro
     atualizarLivro(livro: LivroInput) : Livro
-}
+    deleteLivro(id: Int): Boolean
+}	
 
 type Query {
     obterTodosOsRegistros : [Livro]
