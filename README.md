@@ -25,7 +25,7 @@
 					ano
 					nomeDoAutor
 			   }
-			}",
+		}",
 		"variables": {
 			"livro": {
 				"id":"4",
